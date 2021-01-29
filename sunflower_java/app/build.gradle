@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion rootProject.compileSdkVersion
     buildToolsVersion "30.0.0"
 
     // 开启打开Open DataBinding组件库
@@ -14,8 +14,8 @@ android {
 
     defaultConfig {
         applicationId "top.zcwfeng.sunflower_java"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
