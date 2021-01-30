@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -13,10 +14,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <!-- 代表RecycleView item == tools:listitem="@layout/list_item_garden_planting" -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/garden_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:clipToPadding="false"
+            android:paddingLeft="@dimen/margin_normal"
+            android:paddingRight="@dimen/margin_normal"
+            app:isGone="@{!hasPlantings}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/list_item_garden_planting"/>
 
+        <!-- 如果RecyclerView没有数据，就展示此文字 >（花园里还没有植物） -->
+        <TextView
+            android:id="@+id/empty_garden"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/garden_empty"
+            android:textSize="24sp"
+            app:isGone="@{hasPlantings}"/>
     </FrameLayout>
 </layout>
