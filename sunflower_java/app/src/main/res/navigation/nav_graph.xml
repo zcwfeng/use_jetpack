@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/planDetail"
-        android:name="top.zcwfeng.sunflower_java.PlanDetail"
+        android:name="top.zcwfeng.sunflower_java.PlanDetailFragment"
         android:label="fragment_plan_detail"
         tools:layout="@layout/fragment_plan_detail" />
 </navigation>

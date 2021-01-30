@@ -9,10 +9,10 @@ import androidx.fragment.app.Fragment;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link PlanDetail#newInstance} factory method to
+ * Use the {@link PlanDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PlanDetail extends Fragment {
+public class PlanDetailFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,7 +23,7 @@ public class PlanDetail extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public PlanDetail() {
+    public PlanDetailFragment() {
         // Required empty public constructor
     }
 
@@ -36,8 +36,8 @@ public class PlanDetail extends Fragment {
      * @return A new instance of fragment PlanDetail.
      */
     // TODO: Rename and change types and number of parameters
-    public static PlanDetail newInstance(String param1, String param2) {
-        PlanDetail fragment = new PlanDetail();
+    public static PlanDetailFragment newInstance(String param1, String param2) {
+        PlanDetailFragment fragment = new PlanDetailFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
