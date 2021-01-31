@@ -5,6 +5,9 @@ import android.content.Context;
 import top.zcwfeng.sunflower_java.data.AppDatabase;
 import top.zcwfeng.sunflower_java.data.GardenPlantingRepository;
 import top.zcwfeng.sunflower_java.data.PlantRepository;
+import top.zcwfeng.sunflower_java.viewmodels.GardenPlantingListViewModelFactory;
+import top.zcwfeng.sunflower_java.viewmodels.PlantDetailViewModelFactory;
+import top.zcwfeng.sunflower_java.viewmodels.PlantListViewModelFactory;
 
 /**
  * Static methods used to inject classes needed for various Activities and Fragments.
@@ -20,15 +23,15 @@ public class InjectorUtils {
                 AppDatabase.getInstance(context.getApplicationContext()).getGardenPlantingDao());
     }
 
-//    public static GardenPlantingListViewModelFactory provideGardenPlantingListViewModelFactory(Context context) {
-//        return new GardenPlantingListViewModelFactory(getGardenPlantingRepository(context));
-//    }
-//
-//    public static PlantListViewModelFactory providePlantListViewModelFactory(Context context) {
-//        return new PlantListViewModelFactory(getPlantRepository(context));
-//    }
-//
-//    public static PlantDetailViewModelFactory providerPlantDetailViewModelFactory(Context context, String plantId) {
-//        return new PlantDetailViewModelFactory(getPlantRepository(context), getGardenPlantingRepository(context), plantId);
-//    }
+    public static GardenPlantingListViewModelFactory provideGardenPlantingListViewModelFactory(Context context) {
+        return new GardenPlantingListViewModelFactory(getGardenPlantingRepository(context));
+    }
+
+    public static PlantListViewModelFactory providePlantListViewModelFactory(Context context) {
+        return new PlantListViewModelFactory(getPlantRepository(context));
+    }
+
+    public static PlantDetailViewModelFactory providerPlantDetailViewModelFactory(Context context, String plantId) {
+        return new PlantDetailViewModelFactory(getPlantRepository(context), getGardenPlantingRepository(context), plantId);
+    }
 }

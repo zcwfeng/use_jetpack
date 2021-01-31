@@ -23,7 +23,7 @@ public final class Plant {
 
     @NonNull
     @PrimaryKey
-    @ColumnInfo
+    @ColumnInfo(name = "id")
     private final String plantId;
     @NonNull
     private final String imageUrl;
@@ -55,6 +55,8 @@ public final class Plant {
         lastWateringDate.add(Calendar.DAY_OF_YEAR, wateringInterval);
         return since.compareTo(lastWateringDate) > 0;
     }
+
+
 
     @NonNull
     public String getPlantId() {

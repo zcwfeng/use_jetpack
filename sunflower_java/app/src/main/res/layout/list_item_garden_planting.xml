@@ -16,7 +16,7 @@
         <!-- 图片与文本 信息显示的ViewModel -->
         <variable
             name="viewModel"
-            type="com.google.samples.apps.sunflower.viewmodels.PlantAndGardenPlantingsViewModel"/>
+            type="top.zcwfeng.sunflower_java.viewmodels.PlantAndGardenPlantingsViewModel"/>
 
     </data>
 

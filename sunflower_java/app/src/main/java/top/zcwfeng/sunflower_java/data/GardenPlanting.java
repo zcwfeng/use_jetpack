@@ -12,13 +12,12 @@ import java.util.Objects;
 
 //依赖于你如何访问数据, 你也许想要在数据库中建立某些域的索引, 以加速查询速度. 要给实体添加索引,
 //        需要在@Entity中引入indices属性, 并列出你想要在索引或者复合索引中引入的列的名字.
-@Entity(tableName = "garden_planting",
+@Entity(tableName = "garden_plantings",
         foreignKeys = {@ForeignKey(entity = Plant.class,
                 parentColumns = {"id"},
                 childColumns = {"plant_id"})},
         indices = {@Index("plant_id")})
-
-public final class GardenPlanting {
+public class GardenPlanting {
     @ColumnInfo(name = "plant_id")
     private final String plantId;
 
@@ -42,8 +41,8 @@ public final class GardenPlanting {
 
     public GardenPlanting(String plantId, Calendar plantDate, Calendar lastWateringDate) {
         this.plantId = plantId;
-        this.plantDate = plantDate;
-        this.lastWateringDate = lastWateringDate;
+        this.plantDate = plantDate == null ? Calendar.getInstance() : plantDate;
+        this.lastWateringDate = lastWateringDate == null ? Calendar.getInstance() : lastWateringDate;
     }
 
     public String getPlantId() {
@@ -56,6 +55,14 @@ public final class GardenPlanting {
 
     public Calendar getLastWateringDate() {
         return lastWateringDate;
+    }
+
+    public long getGardenPlantingId() {
+        return gardenPlantingId;
+    }
+
+    public void setGardenPlantingId(long gardenPlantingId) {
+        this.gardenPlantingId = gardenPlantingId;
     }
 
     @NonNull

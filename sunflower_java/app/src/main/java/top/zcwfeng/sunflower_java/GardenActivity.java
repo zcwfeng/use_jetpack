@@ -3,6 +3,7 @@ package top.zcwfeng.sunflower_java;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
@@ -35,8 +36,8 @@ public class GardenActivity extends AppCompatActivity {
 
         // NavigationUI使用AppBarConfiguration 对象来管理应用程序显示区域左上角的“导航”按钮的行为
         this.appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph())
-                .setDrawerLayout(drawerLayout)
-//                .setOpenableLayout(drawerLayout)
+//                .setDrawerLayout(drawerLayout)
+                .setOpenableLayout(drawerLayout)
                 .build();
 
         setSupportActionBar(binding.toolbar);
@@ -52,4 +53,14 @@ public class GardenActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         return NavigationUI.navigateUp(navController, appBarConfiguration) || super.onSupportNavigateUp();
     }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 }

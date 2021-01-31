@@ -24,9 +24,9 @@ buildscript {
 //        ktxVersion = '1.0.2'
         lifecycleVersion = '2.2.0'
         materialVersion = '1.2.1'
-        navigationVersion = '2.3.3'
+        navigationVersion = '2.3.1'
         recyclerViewVersion = '1.1.0'
-        roomVersion = '2.2.6'
+        roomVersion = '2.3.0-alpha01'
         runnerVersion = '1.0.1'
         truthVersion = '0.42'
         testExtJunit = '1.1.2'
@@ -44,9 +44,13 @@ buildscript {
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
-
+//        classpath "com.diffplug.spotless:spotless-plugin-gradle:4.5.1"
     }
 }
+
+//plugins {
+//    id "com.diffplug.gradle.spotless" version "4.5.1"
+//}
 
 allprojects {
     repositories {
@@ -58,3 +62,11 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+//spotless {
+//    kotlin {
+//        target "**/*.kt"
+//        ktlint(ktlintVersion)
+//    }
+//}

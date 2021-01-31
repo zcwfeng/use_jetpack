@@ -1,6 +1,7 @@
 package top.zcwfeng.sunflower_java.data;
 
 import android.content.Context;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -42,7 +43,10 @@ public abstract class AppDatabase extends RoomDatabase {
                     @Override
                     public void onCreate(@NonNull SupportSQLiteDatabase db) {
                         super.onCreate(db);
+                        Log.e("zcwfeng", "buildDatatase workmanager before");
                         WorkManager.getInstance(context).enqueue(OneTimeWorkRequest.from(SeedDatabaseWorker.class));
+                        Log.e("zcwfeng", "buildDatatase workmanager after");
+
                     }
                 })
                 .build();

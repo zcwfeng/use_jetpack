@@ -45,6 +45,7 @@ public class SeedDatabaseWorker extends Worker {
 
             AppDatabase database = AppDatabase.getInstance(getApplicationContext());
             database.getPlantDao().insertAll(plantList);
+            Log.e("zcwfeng", "success seeding database");
 
             return Result.success();
         } catch (IOException e) {
